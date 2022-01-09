@@ -895,14 +895,14 @@
     <instance objName="obj_spring_left" x="9568" y="1328" name="inst_24AA888A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ssz_fan" x="7664" y="1344" name="inst_19ADDE7B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ssz_fan" x="7664" y="1408" name="inst_A36093FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_monitor_bubble" x="3376" y="1712" name="inst_44FD1AF8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_monitor_ring" x="3346" y="1712" name="inst_10542981" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_monitor_bubble" x="3376" y="1728" name="inst_44FD1AF8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_monitor_ring" x="3346" y="1728" name="inst_10542981" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_collision_tile_02" x="7600" y="1600" name="inst_49579C61" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_monitor_ring" x="3405" y="1712" name="inst_C5E33C96" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_monitor_ring" x="3408" y="1728" name="inst_C5E33C96" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_example_bridge_8" x="9648" y="896" name="inst_B4EE4E2C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spring_up_red" x="9760" y="1264" name="inst_8EC92F10" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_monitor_ring" x="9760" y="1264" name="inst_4DC6A06D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_monitor_ring" x="9728" y="1264" name="inst_C1A73485" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_monitor_ring" x="9760" y="1280" name="inst_4DC6A06D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_monitor_ring" x="9728" y="1280" name="inst_C1A73485" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spring_up_red" x="9728" y="1264" name="inst_85F2291E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_water_bubble_generator" x="9232" y="1408" name="inst_27C5B6F6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_corkscrew_horizontal" x="9264" y="340" name="inst_1E869625" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

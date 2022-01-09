@@ -63,8 +63,8 @@
     }
     else
     {
-       global.player_lives      = 3;
-       room_goto(rm_title);
+       global.player_lives = 3;
+       room_goto(rm_engine_logo);
     }
 
 </string>

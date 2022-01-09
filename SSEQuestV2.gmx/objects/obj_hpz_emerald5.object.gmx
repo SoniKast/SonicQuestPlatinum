@@ -104,7 +104,7 @@ if (can_set_alpha == true)
  }
 }
 
-if(global.used_emerald_5 = true)
+if(global.used_emerald[4] = true)
 {
 instance_change(obj_unused_emerald,true)
 }

@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-15</depth>
+  <depth>-5</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -165,7 +165,7 @@
        }       
        if(option_delay == 0)
        {
-          bind_check = gamepad_check();
+          bind_check = gamepad_id_pressed();
        }
        if(bind_check != 0 &amp;&amp; option_delay == 0)
        {
@@ -208,11 +208,20 @@
             <kind>1</kind>
             <string>/// Draw option pages.
 
+    draw_sprite(spr_menu_tails, 0, global.screen_width/2, global.screen_height/2);
     draw_set_font(global.main_font);
     draw_set_halign(fa_center);
     draw_set_color(c_yellow)
-    draw_text(global.screen_width/2, 19, "- SETTINGS -")
-    draw_text(global.screen_width/2, 215, string(option_description));
+    switch(global.screen_mode)
+    {
+        case 1:
+        draw_text(global.screen_width/2, 19, "- SETTINGS -")
+        draw_text(global.screen_width/2, 215, string(option_description));
+        break;
+        case 2:
+        draw_text(global.screen_width/2, 13, "- SETTINGS -")
+        draw_text(global.screen_width/2, global.screen_height-6, string(option_description));
+    }
     draw_set_color(c_white);
     if(option_bind == 0)
     {
@@ -221,7 +230,7 @@
           if(keyboard_check_pressed(global.key_down) &amp;&amp; option_ended != 1)
           {  
              aud_play_sound(general_switch, global.sfx_volume, 1, 0, 0);
-             if(option_selected &lt; 6)
+             if(option_selected &lt; 8)
              {
                 option_selected += 1;
              }
@@ -239,7 +248,7 @@
              }
              else
              {
-                option_selected = 6;
+                option_selected = 8;
              }
           } 
            
@@ -392,14 +401,11 @@
           if(option_selected == 4)
           {
              option_description = "- Change the Gamepad bindings -"
-             if(global.gmp_exists == 1)
+             draw_set_color(c_yellow);
+             if(keyboard_check_pressed(global.key_action) &amp;&amp; option_ended != 1)
              {
-                draw_set_color(c_yellow);
-                if(keyboard_check_pressed(global.key_action) &amp;&amp; option_ended != 1)
-                {
-                   option_delay = 30;
-                   option_bind  = 2;
-                }            
+                option_delay = 30;
+                option_bind  = 2;           
              }
              else
              {
@@ -441,6 +447,64 @@
                            
           if(option_selected == 6)
           {
+             option_description = "- Change the aspect ratio -"
+             draw_set_color(c_yellow);
+             if(keyboard_check_pressed(global.key_left) &amp;&amp; option_ended != 1)
+             {
+                aud_play_sound(general_switch, global.sfx_volume, 1, 0, 0);             
+                if(global.screen_mode = 2)
+                {
+                    global.screen_width   = 424;
+                    global.screen_height  = 240;
+                    global.screen_mode = 1;
+                }
+             }
+             if(keyboard_check_pressed(global.key_right) &amp;&amp; option_ended != 1)
+             {
+                aud_play_sound(general_switch, global.sfx_volume, 1, 0, 0);             
+                if(global.screen_mode = 1)
+                {
+                    global.screen_width   = 320;
+                    global.screen_height  = 224;
+                    global.screen_mode = 2;
+                }               
+             }             
+          }
+          else
+          {
+             draw_set_color(c_white);
+          } 
+          draw_text(global.screen_width/2, 144, "MODE - "+string(global.screen_mode))
+        
+          if(option_selected == 7)
+          {
+             option_description = "- Activate or deactivate VSync -"
+             draw_set_color(c_yellow);
+             if(keyboard_check_pressed(global.key_left) &amp;&amp; option_ended != 1)
+             {
+                aud_play_sound(general_switch, global.sfx_volume, 1, 0, 0);             
+                if(global.display_vsync = 1)
+                {
+                    global.display_vsync = 0;
+                }
+             }
+             if(keyboard_check_pressed(global.key_right) &amp;&amp; option_ended != 1)
+             {
+                aud_play_sound(general_switch, global.sfx_volume, 1, 0, 0);             
+                if(global.display_vsync = 0)
+                {
+                    global.display_vsync = 1;
+                }               
+             }    
+          }
+          else
+          {
+             draw_set_color(c_white);
+          } 
+          draw_text(global.screen_width/2, 160, "VSYNC - "+string(global.display_vsync))
+          
+          if(option_selected == 8)
+          {
              option_description = "- Return to the Menu -"
              draw_set_color(c_yellow);
              if(keyboard_check_pressed(global.key_enter) &amp;&amp; option_ended != 1)
@@ -450,11 +514,11 @@
                    option_ended = 1;
                    with(instance_create(0, 0, obj_fade_to_value))
                    {
-                        value = rm_title;
+                        value = rm_menu;
                    }
-                   with(obj_title_screen_logo)
+                   with(obj_main_menu)
                    {
-                    title_menu_option = 2;
+                        main_menu_option = 2;
                    }
                    save_global_create();
                 }
@@ -464,8 +528,8 @@
           {
              draw_set_color(c_white);
           } 
-          draw_text(global.screen_width/2, global.screen_height-48, "EXIT")                  
-        
+          draw_text(global.screen_width/2, global.screen_height-48, "EXIT") 
+                
     }
     if(option_bind &gt; 0)
     {

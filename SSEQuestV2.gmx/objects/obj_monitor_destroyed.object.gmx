@@ -29,12 +29,17 @@
  
     icon_position         = 0;
     icon_move_length      = 45;
-    icon_disappear_length = 30;
+    icon_disappear_length = 60;
     icon_rewarded         = -1;    
     landed                = false;
     y_speed               = 0;      
     y_gravity             = 0.21875;
+    frame                 = 0;
+    image_speed           = 0.25;
+    
     palette_pos           = 0;
+    _scale                = 1;
+
 </string>
           </argument>
         </arguments>
@@ -60,8 +65,6 @@
             <string>/// Gravity.
 
  // Check for collision:
-    if(landed == false)
-    {
        repeat(abs(y_speed))
        {
               if(!place_meeting(x, y+sign(y_speed), par_terrain))
@@ -75,6 +78,9 @@
               }           
        }
     // Add Gravity:
+    
+    if(landed == false)
+    {
        y_speed += y_gravity;
        if(y_speed &gt; 12)
        {
@@ -306,9 +312,38 @@
  // Reset the palette:
     pal_swap_reset();
     
- // Draw Icon:
-    if(icon_disappear_length){
-       draw_sprite_ext(spr_monitor_icon, icon, x, yy+icon_position, 1, 1, 0, c_white, 1)
+ // Draw Icon: 
+    if(icon_move_length || icon_disappear_length)
+    {  
+       if(!icon_move_length)
+       {
+          if(frame &lt; 3)
+          {
+             frame += 0.25;
+          }
+          else frame = 3;
+          
+          if(_scale != 0 &amp;&amp; icon_disappear_length &lt;= 30)
+          {
+             _scale += (0-_scale)*0.15;
+          }
+       }
+       else
+       {
+          frame += 0.25;
+       }
+       
+ // Swap the palette
+       pal_swap_set(spr_monitor_flip_palette, palette_pos, false);
+       draw_sprite_ext(spr_monitor_flip, floor(frame), x, yy+icon_position, _scale, _scale, 0, c_white, 1);
+       
+ // Reset the palette:
+       pal_swap_reset();
+       if(floor(frame) &gt;= 3)
+       {
+          draw_sprite_ext(spr_monitor_icon, icon, x, yy+icon_position, _scale, _scale, 0, c_white, 1);
+       }
+       if(frame &gt; 3) frame = 0;
     }
 </string>
           </argument>

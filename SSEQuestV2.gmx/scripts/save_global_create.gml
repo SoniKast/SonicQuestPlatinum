@@ -5,6 +5,8 @@
     ini_open("quest_settings.bin");
     {
        ini_write_real("Display",   "Scale",      global.screen_scale);
+       ini_write_real("Display",    "Mode",      global.screen_mode);
+       ini_write_real("Display",   "VSync",      global.display_vsync);
        ini_write_real("Audio", "BGMVolume",      global.bgm_volume);       
        ini_write_real("Audio", "SFXVolume",      global.sfx_volume);          
        ini_write_real("Keyboard",  "KeyUp",      global.key_up);        
@@ -16,7 +18,7 @@
        ini_write_real("Keyboard",  "KeyEnter",   global.key_enter);           
        ini_write_real("Gamepad",  "GMPAction",   global.gmp_action);  
        ini_write_real("Gamepad",  "GMPSpecial",  global.gmp_special);
-       ini_write_real("Gamepad",  "GMPEnter",    global.gmp_enter);                                 
+       ini_write_real("Gamepad",  "GMPEnter",    global.gmp_enter);
        ini_write_real("Unlocked", "Secret",      global.secret);  
     }
     ini_close()
@@ -43,3 +45,5 @@
        window_center();      
        obj_screen_controller.alarm[0] = 1;                     
     }    
+
+

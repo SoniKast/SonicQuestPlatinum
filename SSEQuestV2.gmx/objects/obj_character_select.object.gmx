@@ -325,9 +325,13 @@ if(surface_exists(tails_surf)){
             <kind>1</kind>
             <string>/// Draw the surface
 // Check if surface exists, otherwise create it again.
-   if(surface_exists(sonic_surf) == false) { sonic_surf = surface_create(212, 207); }
+draw_sprite(spr_menu_knux, 0, global.screen_width/2, global.screen_height/2);
+switch(global.screen_mode)
+{
+    case 1:
+    if(surface_exists(sonic_surf) == false) { sonic_surf = surface_create(212, 207); }
   
-// Draw surface.
+    // Draw surface.
     surface_set_target(sonic_surf);
     draw_sprite_tiled_horizontal(spr_css_sonic_bg, 0, css_position+x_speed, 0);
     draw_sprite(spr_css_sonic, sonic_chosen, css_position, 0);
@@ -335,17 +339,42 @@ if(surface_exists(tails_surf)){
 
     draw_surface(sonic_surf, 0+css_position, 17);
  
-// Check if surface exists, otherwise create it again.
-   if(surface_exists(tails_surf) == false) { tails_surf = surface_create(212, 207); }
+    // Check if surface exists, otherwise create it again.
+    if(surface_exists(tails_surf) == false) { tails_surf = surface_create(212, 207); }
   
-// Draw surface.
+    // Draw surface.
     surface_set_target(tails_surf);
     draw_sprite_tiled_horizontal(spr_css_tails_bg, 0, css_position_2+x_speed, 0);
     draw_sprite(spr_css_tails, tails_chosen, css_position_2, 0);
     surface_reset_target();
 
     draw_surface(tails_surf, 212+css_position_2, 17);  
+    break;
     
+    case 2:
+    if(surface_exists(sonic_surf) == false) { sonic_surf = surface_create(160, 176); }
+  
+    // Draw surface.
+    surface_set_target(sonic_surf);
+    draw_sprite_tiled_horizontal(spr_css_sonic_bg, 0, css_position+x_speed, 0);
+    draw_sprite(spr_css_sonic_prime, sonic_chosen, css_position, 6);
+    surface_reset_target();
+
+    draw_surface(sonic_surf, 0+css_position, 24);
+ 
+    // Check if surface exists, otherwise create it again.
+    if(surface_exists(tails_surf) == false) { tails_surf = surface_create(160, 176); }
+  
+    // Draw surface.
+    surface_set_target(tails_surf);
+    draw_sprite_tiled_horizontal(spr_css_tails_bg, 0, css_position_2+x_speed, 0);
+    draw_sprite(spr_css_tails_prime, tails_chosen, css_position_2, 6);
+    surface_reset_target();
+
+    draw_surface(tails_surf, 160+css_position_2, 24);  
+    break;
+    
+}    
 </string>
           </argument>
         </arguments>

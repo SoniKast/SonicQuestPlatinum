@@ -266,14 +266,27 @@
      // Don't draw the banner and the stripe if you're in the bonus stage.  
         if(global.BonusStage = false)
         {
-     // Banner.
-        draw_sprite(spr_title_card_banner, -1, view_xview+banner_x, view_yview+banner_y);
-        
-     // Stripe
-        draw_sprite(spr_title_card_stripe, -1, view_xview+stripe_x, view_yview+stripe_y);
+            switch(global.screen_mode)
+            {
+                case 1:
+                // Banner.
+                draw_sprite(spr_title_card_banner, -1, view_xview+banner_x, view_yview+banner_y);
+                
+                // Stripe
+                draw_sprite(spr_title_card_stripe, -1, view_xview+stripe_x, view_yview+stripe_y);
+                break;
+                
+                case 2:
+                // Banner.
+                draw_sprite(spr_title_card_banner_prime, -1, view_xview+banner_x, view_yview+banner_y);
+                
+                // Stripe
+                draw_sprite(spr_title_card_stripe_prime, -1, view_xview+stripe_x, view_yview+stripe_y);
+                break;
+            }
         }
-        
-     // Text.
+            
+        // Text.
         draw_set_font(zone_font);
         draw_set_color(c_white);
         draw_text(view_xview+zone_x, view_yview+zone_y, zone_text);

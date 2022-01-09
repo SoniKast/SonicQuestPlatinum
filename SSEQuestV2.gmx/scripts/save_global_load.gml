@@ -4,7 +4,9 @@
  // Open/Create ini.
     ini_open("quest_settings.bin");
     {
-       global.screen_scale = ini_read_real("Display",   "Scale",      1);
+       global.screen_scale = ini_read_real("Display",   "Scale",      1);                    
+       global.screen_mode  = ini_read_real("Display",    "Mode",      1);
+       global.display_vsync = ini_read_real("Display", "VSync",       0);
        global.bgm_volume   = ini_read_real("Audio", "BGMVolume",      1);       
        global.sfx_volume   = ini_read_real("Audio", "SFXVolume",      1);          
        global.key_up       = ini_read_real("Keyboard",  "KeyUp",      vk_up);        
@@ -17,7 +19,7 @@
        global.gmp_action   = ini_read_real("Gamepad",  "GMPAction",   0);  
        global.gmp_special  = ini_read_real("Gamepad",  "GMPSpecial",  0);
        global.gmp_enter    = ini_read_real("Gamepad",  "GMPEnter",    0);     
-       global.secret       = ini_read_real("Unlocked", "Secret",      0);                            
+       global.secret       = ini_read_real("Unlocked", "Secret",      0);        
     }
     ini_close()
 

@@ -1158,61 +1158,34 @@
     if(global.controller_lock == false)
     {
     // ---- Pressed keys ------------------------------------------------------------
-  switch global.Mode{ //Check Recording Mode.
+  switch(global.Mode)
+  { 
+  //Check Recording Mode.
   
   case 0:
-  if(global.gmp_exists == 1)
-  {
      // Key held.   
-        input_up               = (keyboard_check(global.key_up)      || ((joystick_ypos(0) &lt;= -global.gmp_deadzone) &amp;&amp; global.gmp_deadzone != 0) || (joy_hat_y(0) = -1));
-        input_down             = (keyboard_check(global.key_down)    || ((joystick_ypos(0) &gt;=  global.gmp_deadzone) &amp;&amp; global.gmp_deadzone != 0) || (joy_hat_y(0) =  1));
-        input_right            = (keyboard_check(global.key_right)   || ((joystick_xpos(0) &gt;=  global.gmp_deadzone) &amp;&amp; global.gmp_deadzone != 0) || (joy_hat_x(0) =  1));
-        input_left             = (keyboard_check(global.key_left)    || ((joystick_xpos(0) &lt;= -global.gmp_deadzone) &amp;&amp; global.gmp_deadzone != 0) || (joy_hat_x(0) = -1));
-        input_action           = (keyboard_check(global.key_action)  || (joy_button(0, global.gmp_action) ==  1));
-        input_special          = (keyboard_check(global.key_special) || (joy_button(0, global.gmp_special) ==  1));
+        input_up               = (keyboard_check(global.key_up)      || gamepad_button_check(global.gamepad_slot, gp_padu) || gamepad_axis_value(global.gamepad_slot, gp_axislv) &lt; -0.5);
+        input_down             = (keyboard_check(global.key_down)    || gamepad_button_check(global.gamepad_slot, gp_padd) || gamepad_axis_value(global.gamepad_slot, gp_axislv) &gt;  0.5);
+        input_right            = (keyboard_check(global.key_right)   || gamepad_button_check(global.gamepad_slot, gp_padr) || gamepad_axis_value(global.gamepad_slot, gp_axislh) &gt;  0.5);
+        input_left             = (keyboard_check(global.key_left)    || gamepad_button_check(global.gamepad_slot, gp_padl) || gamepad_axis_value(global.gamepad_slot, gp_axislh) &lt; -0.5);
+        input_action           = (keyboard_check(global.key_action)  || gamepad_button_check(global.gamepad_slot, gp_face1));
+        input_special          = (keyboard_check(global.key_special) || gamepad_button_check(global.gamepad_slot, gp_face3));
         
      // Key press.
-        input_up_pressed       = (keyboard_check_pressed(global.key_up));
-        input_down_pressed     = (keyboard_check_pressed(global.key_down));
-        input_right_pressed    = (keyboard_check_pressed(global.key_right));
-        input_left_pressed     = (keyboard_check_pressed(global.key_left));
-        input_action_pressed   = (keyboard_check_pressed(global.key_action)  || joy_pressed(0, global.gmp_action));
-        input_special_pressed  = (keyboard_check_pressed(global.key_special) || joy_pressed(0, global.gmp_special));
+        input_up_pressed       = (keyboard_check_pressed(global.key_up)      || gamepad_button_check_pressed(global.gamepad_slot, gp_padu));
+        input_down_pressed     = (keyboard_check_pressed(global.key_down)    || gamepad_button_check_pressed(global.gamepad_slot, gp_padd));
+        input_right_pressed    = (keyboard_check_pressed(global.key_right)   || gamepad_button_check_pressed(global.gamepad_slot, gp_padr));
+        input_left_pressed     = (keyboard_check_pressed(global.key_left)    || gamepad_button_check_pressed(global.gamepad_slot, gp_padl));
+        input_action_pressed   = (keyboard_check_pressed(global.key_action)  || gamepad_button_check_pressed(global.gamepad_slot, gp_face1));
+        input_special_pressed  = (keyboard_check_pressed(global.key_special) || gamepad_button_check_pressed(global.gamepad_slot, gp_face3));
     
      // Key release.    
-        input_up_released      = (keyboard_check_released(global.key_up)      || ((joystick_ypos(0) &gt; -global.gmp_deadzone) &amp;&amp; global.gmp_deadzone != 0) || (joy_hat_y(0) != -1));
-        input_down_released    = (keyboard_check_released(global.key_down)    || ((joystick_ypos(0) &lt;  global.gmp_deadzone) &amp;&amp; global.gmp_deadzone != 0) || (joy_hat_y(0) !=  1));
-        input_right_released   = (keyboard_check_released(global.key_right)   || ((joystick_xpos(0) &lt;  global.gmp_deadzone) &amp;&amp; global.gmp_deadzone != 0) || (joy_hat_x(0) !=  1));
-        input_left_released    = (keyboard_check_released(global.key_left)    || ((joystick_xpos(0) &gt; -global.gmp_deadzone) &amp;&amp; global.gmp_deadzone != 0) || (joy_hat_x(0) != -1));
-        input_action_released  = (keyboard_check_released(global.key_action)  || (joy_released(0, global.gmp_action)));
-        input_special_released = (keyboard_check_released(global.key_special) || (joy_released(0, global.gmp_special)));       
-  }
-  else
-  {
-  // Key held.   
-        input_up               = keyboard_check(global.key_up);
-        input_down             = keyboard_check(global.key_down);
-        input_right            = keyboard_check(global.key_right);
-        input_left             = keyboard_check(global.key_left);
-        input_action           = keyboard_check(global.key_action);
-        input_special          = keyboard_check(global.key_special);
-        
-     // Key press.
-        input_up_pressed       = keyboard_check_pressed(global.key_up);
-        input_down_pressed     = keyboard_check_pressed(global.key_down);
-        input_right_pressed    = keyboard_check_pressed(global.key_right);
-        input_left_pressed     = keyboard_check_pressed(global.key_left);
-        input_action_pressed   = keyboard_check_pressed(global.key_action);
-        input_special_pressed  = keyboard_check_pressed(global.key_special);
-    
-     // Key release.    
-        input_up_released      = keyboard_check_released(global.key_up);
-        input_down_released    = keyboard_check_released(global.key_down);
-        input_right_released   = keyboard_check_released(global.key_right);
-        input_left_released    = keyboard_check_released(global.key_left);
-        input_action_released  = keyboard_check_released(global.key_action);
-        input_special_released = keyboard_check_released(global.key_special);       
-  }
+        input_up_released      = (keyboard_check_released(global.key_up)      || gamepad_button_check_released(global.gamepad_slot, gp_padu));
+        input_down_released    = (keyboard_check_released(global.key_down)    || gamepad_button_check_released(global.gamepad_slot, gp_padd));
+        input_right_released   = (keyboard_check_released(global.key_right)   || gamepad_button_check_released(global.gamepad_slot, gp_padr));
+        input_left_released    = (keyboard_check_released(global.key_left)    || gamepad_button_check_released(global.gamepad_slot, gp_padl));
+        input_action_released  = (keyboard_check_released(global.key_action)  || gamepad_button_check_released(global.gamepad_slot, gp_face1));
+        input_special_released = (keyboard_check_released(global.key_special) || gamepad_button_check_released(global.gamepad_slot, gp_face3));
   break;
   
   case 1:  //If playing recorded file, load keys.
@@ -1282,8 +1255,9 @@
         input_action_released  = keyboard_check_released(global.key_action);
         input_special_released = keyboard_check_released(global.key_special);    
  
-  break;
-}    
+        break;
+}
+    
      // Disable input if both left and right is being held.
         if(input_left &amp;&amp; input_right)
         {

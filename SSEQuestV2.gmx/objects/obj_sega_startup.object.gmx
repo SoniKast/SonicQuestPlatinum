@@ -200,7 +200,11 @@ alarm[1] = 60*2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
+            <string>switch(global.screen_mode)
+{
+    case 1: draw_self(); break;
+    case 2: draw_sprite(spr_sega, -1, 0, 0); break;
+}
 </string>
           </argument>
         </arguments>

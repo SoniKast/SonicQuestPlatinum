@@ -33,7 +33,7 @@ skip = false;
 alarm[2] = 35;
 
 ended = 0
-x = 208
+x = global.screen_width/2
 y = -1
 gravity = 0.2
 bounceheight = 8
@@ -134,6 +134,11 @@ gravity = 0
 vspeed = 0
 }
 
+if(keyboard_check_pressed(global.key_enter) &amp;&amp; skip = true)
+{
+    aud_play_sound(general_shine, global.sfx_volume, 1, 0, 0);
+    instance_create(x, y, obj_fade_next_white);
+}
 </string>
           </argument>
         </arguments>

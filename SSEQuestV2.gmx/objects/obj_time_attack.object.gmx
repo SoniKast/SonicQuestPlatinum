@@ -178,8 +178,9 @@ sound_stop(general_score_points);
           <argument>
             <kind>1</kind>
             <string>//makes it so it highlights text using depending on what menu's value is
+draw_sprite(spr_menu_tails, 0, global.screen_width/2, global.screen_height/2);
 draw_set_halign(fa_center)
-draw_sprite(spr_time_attack, menu, x, y);
+draw_sprite(spr_time_attack, menu, global.screen_width/2, global.screen_height/2);
 
 </string>
           </argument>

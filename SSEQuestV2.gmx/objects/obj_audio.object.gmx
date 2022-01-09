@@ -382,6 +382,15 @@
                 aud_play_sound(jingle_continue, global.bgm_volume, 1, 0, 0);
                 break;
            }     
+           case rm_menu:
+           {
+                zone_bgm = music_menu;
+                if(audio_is_playing(zone_bgm) == false)
+                {
+                   aud_play_music(zone_bgm, global.bgm_volume, 1);
+                }
+                break;
+           }        
            case rm_time_attack:
            {
                 zone_bgm = music_time_attack;

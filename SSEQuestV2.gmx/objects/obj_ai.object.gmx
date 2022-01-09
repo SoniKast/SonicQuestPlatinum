@@ -993,7 +993,7 @@
 
  // Exit if not initialized or death.
     if(initialized = false || state = STATE_DEATH || state == STATE_RESPAWN) exit;
-
+    
  // Set parent to follow.
     follow_parent = obj_player;
  

@@ -29,7 +29,6 @@
 
     // Title
     ang_radius      = 0;
-    game_snapshot   = noone;
     
     // Cheat Input
     CheatCode    = "";
@@ -45,30 +44,24 @@
     title_menu_cpu       = 0;
     sound_test_option    = 0;
     retro_sonic_quest    = 0;
-    image_speed          = 0.5;
+    image_speed          = 0.05;
     alarm[0]             = 15;
     alarm[1]             = 5;
     if(menu_mode = "TITLE")
     {
         alarm[2]             = 3000;
     }
-    title_menu_string0   = "RIVERS. VALLEY"
-    title_menu_string1   = ""
+    
+    title_menu_string0   = "RADIANT RIVER."
     title_menu_string2   = "PETAL PARK    "
-    title_menu_string3   = ""
     title_menu_string4   = "CHAOTIC CASINO"
-    title_menu_string5   = ""
     title_menu_string6   = "FRANTIC FOREST"
-    title_menu_string7   = "              "
-    title_menu_string8   = "AQUAPOLIS     "
-    title_menu_string9   = "              "
-    title_menu_string10  = "EGG GAUNTLET  "
-    title_menu_string11  = "              "
-    title_menu_string12  = "STEAMPUNK EGG "
-    title_menu_string13  = "BRIDGE        "
-    title_menu_string14  = "              "
-    title_menu_string15  = "TEST ZONE     "
-    title_menu_string16  = "              "
+    title_menu_string8   = "WILD WATERWORK"
+    title_menu_string10  = "STREAMED SANDS"
+    title_menu_string12  = "EGG GAUNTLET  "
+    title_menu_string14  = "STEAMPUNK EGG "
+    title_menu_string15  = "FINAL FALL    "
+    title_menu_string16  = "FOLIAGE AIRWAY"
     title_menu_string17  = "BONUS STAGE   "
     title_menu_string18  = "SPECIAL STAGE "
     title_menu_string19  = "SOUND TEST    "
@@ -276,7 +269,7 @@ if(title_menu_active == 1)
     {
        if(keyboard_check_pressed(global.key_down))
        {
-          if(title_menu_option &lt; 20)
+          if(title_menu_option &lt; 22)
           {
              title_menu_option += 1;
              aud_play_sound(general_switch, global.sfx_volume, 1, 0, 0);   
@@ -295,7 +288,7 @@ if(title_menu_active == 1)
           }
           else
           {
-             title_menu_option = 20;
+             title_menu_option = 22;
           }
        }       
     }
@@ -304,7 +297,7 @@ if(title_menu_active == 1)
 
 if(title_menu_active == 1)
 {
-    if(title_menu_option = 19)
+    if(title_menu_option = 21)
     {
        if(keyboard_check_pressed(global.key_right))
        {
@@ -516,16 +509,43 @@ if(title_menu_active == 1)
                  }
                  case 10:
                  {    
+                      /*
                       with(instance_create(0, 0, obj_fade_to_value))
                       {
-                           value = rm_egg_gauntlet1;
-                      }
+                           value = rm_streamlined_sands1;
+                      }*/
+                      aud_play_sound(general_error, global.sfx_volume, 1, 0, 0);
                       global.player_id = title_menu_character;
                       global.cpu       = title_menu_cpu;
                       global.time_attack = false;
                       break;
                  }
                  case 11:
+                 {    
+                      /*
+                      with(instance_create(0, 0, obj_fade_to_value))
+                      {
+                           value = rm_streamlined_sands2;
+                      }*/
+                      aud_play_sound(general_error, global.sfx_volume, 1, 0, 0);
+                      global.player_id = title_menu_character;
+                      global.cpu       = title_menu_cpu;
+                      global.time_attack = false;
+                      break;
+                 }
+                 case 12:
+                 {    
+                      /*with(instance_create(0, 0, obj_fade_to_value))
+                      {
+                           value = rm_egg_gauntlet1;
+                      }*/
+                      aud_play_sound(general_error, global.sfx_volume, 1, 0, 0);
+                      global.player_id = title_menu_character;
+                      global.cpu       = title_menu_cpu;
+                      global.time_attack = false;
+                      break;
+                 }
+                 case 13:
                  {    
                       /*with(instance_create(0, 0, obj_fade_to_value))
                       {
@@ -538,7 +558,7 @@ if(title_menu_active == 1)
                       global.time_attack = false;
                       break;
                  }
-                 case 12:
+                 case 14:
                  {    
                       with(instance_create(0, 0, obj_fade_to_value))
                       {
@@ -549,7 +569,7 @@ if(title_menu_active == 1)
                       global.time_attack = false;
                       break;
                  }
-                 case 13:
+                 case 15:
                  {    
                       with(instance_create(0, 0, obj_fade_to_value))
                       {
@@ -560,7 +580,7 @@ if(title_menu_active == 1)
                       global.time_attack = false;
                       break;
                  }
-                 case 14:
+                 case 16:
                  {    
                       with(instance_create(0, 0, obj_fade_to_value))
                       {
@@ -571,7 +591,7 @@ if(title_menu_active == 1)
                       global.time_attack = false;
                       break;
                  }
-                 case 15:
+                 case 17:
                  {    
                       with(instance_create(0, 0, obj_fade_to_value))
                       {
@@ -582,7 +602,7 @@ if(title_menu_active == 1)
                       global.time_attack = false;
                       break;
                  }
-                 case 16:
+                 case 18:
                  {    
                       with(instance_create(0, 0, obj_fade_to_value))
                       {
@@ -593,7 +613,7 @@ if(title_menu_active == 1)
                       global.time_attack = false;
                       break;
                  }
-                 case 17:
+                 case 19:
                  {    
                       with(instance_create(0, 0, obj_fade_to_value))
                       {
@@ -604,7 +624,7 @@ if(title_menu_active == 1)
                       global.time_attack = false;
                       break;
                  }
-                 case 18:
+                 case 20:
                  {    
                       with(instance_create(0, 0, obj_fade_to_value))
                       {
@@ -614,7 +634,7 @@ if(title_menu_active == 1)
                       global.time_attack = false;
                       break;
                  }
-                 case 19:
+                 case 21:
                  {    
                       switch(sound_test_option)
                       {
@@ -1411,7 +1431,7 @@ if(title_menu_active == 1)
                       }
                       break;
                  }
-                 case 20:
+                 case 22:
                  {
                       menu_mode = "TITLE";
                       title_menu_active = 1;
@@ -1471,14 +1491,14 @@ if(title_menu_active == 1)
 if(retro_sonic_quest = 0)
 {
     // --- Draw Title ----------------------------------------
-    draw_sprite(spr_title_screen, 0, x, y);
-    draw_sprite(spr_platinum_edition, 0, x, y);
+    draw_sprite(spr_title_screen, 0, global.screen_width/2, global.screen_height-126);
+    draw_sprite(spr_platinum_edition, 0, global.screen_width/2, global.screen_height-44);
 }
 // Draw the retro title
 else
 {
-    draw_sprite(spr_retro_title, 0, x, y);
-    draw_sprite(spr_platinum_edition, 0, x, y+10);
+    draw_sprite(spr_retro_title, 0, global.screen_width/2, global.screen_height/2);
+    draw_sprite(spr_platinum_edition, global.screen_width/2, x, global.screen_height-40);
 }  
      
 // Draw menu.
@@ -1491,268 +1511,16 @@ if(menu_mode = "TITLE")
     
     // Draw the game version
     draw_set_color(c_white);
-    draw_text(4, 228, GAME_VERSION);
-    draw_sprite(spr_presentation, 0, 0, 0);    
+    draw_text(4, global.screen_height-12, "V."+string(GAME_VERSION));
+    draw_sprite(spr_presentation, 0, global.screen_width-2, global.screen_height-22);    
     
     // Draw the press start sprite
-    draw_sprite(spr_press_start, -1, 160, 218);
+    draw_sprite(spr_press_start, -1, global.screen_width/2, global.screen_height-34);
 }
 // Level select
 if(menu_mode = "LEVEL SELECT")
 {
-    draw_sprite(spr_level_select_bg, 0, 0, 0);
-    draw_set_color(c_white);
-    draw_set_font(global.title_font);
-    draw_set_halign(fa_left);
-    draw_text(262, 46, scr_string_number_format(title_menu_character-1, 2));
-    draw_text(294, 46, scr_string_number_format(title_menu_cpu, 2));
-    if(title_menu_option = 0)
-    {
-    draw_set_color(c_yellow);
-    draw_text(69, 31, title_menu_string0); 
-    draw_text(190, 31, "1");
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(69, 31, title_menu_string0); 
-    draw_text(190, 31, "1");
-    }
-    if(title_menu_option = 1)
-    {
-    draw_set_color(c_yellow); 
-    draw_text(69, 39, title_menu_string1); 
-    draw_text(189, 39, "2");
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(69, 39, title_menu_string1); 
-    draw_text(189, 39, "2");
-    }
-    if(title_menu_option = 2)
-    {
-    draw_set_color(c_yellow); 
-    draw_text(69, 55, title_menu_string2); 
-    draw_text(190, 55, "1");
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(69, 55, title_menu_string2); 
-    draw_text(190, 55, "1");
-    }
-    if(title_menu_option = 3)
-    {
-    draw_set_color(c_yellow); 
-    draw_text(69, 63, title_menu_string3);
-    draw_text(189, 63, "2");
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(69, 63, title_menu_string3); 
-    draw_text(189, 63, "2");
-    }
-    if(title_menu_option = 4)
-    {
-    draw_set_color(c_yellow); 
-    draw_text(69, 79, title_menu_string4); 
-    draw_text(190, 79, "1");
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(69, 79, title_menu_string4); 
-    draw_text(190, 79, "1");
-    }
-    if(title_menu_option = 5)
-    {
-    draw_set_color(c_yellow); 
-    draw_text(69, 87, title_menu_string5);
-    draw_text(189, 87, "2");
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(69, 87, title_menu_string5); 
-    draw_text(189, 87, "2");
-    }
-    if(title_menu_option = 6)
-    {
-    draw_set_color(c_yellow); 
-    draw_text(69, 103, title_menu_string6);
-    draw_text(190, 103, "1");
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(69, 103, title_menu_string6);
-    draw_text(190, 103, "1");
-    }
-    if(title_menu_option = 7)
-    {
-    draw_set_color(c_yellow); 
-    draw_text(69, 111, title_menu_string7); 
-    draw_text(189, 111, "2");
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(69, 111, title_menu_string7);
-    draw_text(189, 111, "2");
-    }
-    if(title_menu_option = 8)
-    {
-    draw_set_color(c_yellow);
-    draw_text(69, 127, title_menu_string8); 
-    draw_text(190, 127, "1");
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(69, 127, title_menu_string8); 
-    draw_text(190, 127, "1");
-    }
-    if(title_menu_option = 9)
-    {
-    draw_set_color(c_yellow); 
-    draw_text(69, 135, title_menu_string9); 
-    draw_text(189, 135, "2");
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(69, 135, title_menu_string9); 
-    draw_text(189, 135, "2");
-    }
-    if(title_menu_option = 10)
-    {
-    draw_set_color(c_yellow);
-    draw_text(69, 151, title_menu_string10); 
-    draw_text(190, 151, "1");
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(69, 151, title_menu_string10);  
-    draw_text(190, 151, "1");
-    }
-    if(title_menu_option = 11)
-    {
-    draw_set_color(c_yellow); 
-    draw_text(69, 159, title_menu_string11); 
-    draw_text(189, 159, "2");
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(69, 159, title_menu_string11); 
-    draw_text(189, 159, "2");
-    }
-    if(title_menu_option = 12)
-    {
-    draw_set_color(c_yellow);
-    draw_text(69, 175, title_menu_string12); 
-    draw_text(189, 175, "3");
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(69, 175, title_menu_string12); 
-    draw_text(189, 175, "3");
-    }
-    if(title_menu_option = 13)
-    {
-    draw_set_color(c_yellow);  
-    draw_text(222, 31, title_menu_string13);
-    draw_text(343, 31, "1");
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(222, 31, title_menu_string13);
-    draw_text(343, 31, "1");
-    }
-    if(title_menu_option = 14)
-    {
-    draw_set_color(c_yellow); 
-    draw_text(222, 39, title_menu_string14);
-    draw_text(342, 39, "2");
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(222, 39, title_menu_string14);
-    draw_text(342, 39, "2");
-    }
-    if(title_menu_option = 15)
-    {
-    draw_set_color(c_yellow); 
-    draw_text(222, 55, title_menu_string15); 
-    draw_text(343, 55, "1");
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(222, 55, title_menu_string15); 
-    draw_text(343, 55, "1");
-    }
-    if(title_menu_option = 16)
-    {
-    draw_set_color(c_yellow); 
-    draw_text(222, 63, title_menu_string16);
-    draw_text(342, 63, "2");
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(222, 63, title_menu_string16);
-    draw_text(342, 63, "2");
-    }
-    if(title_menu_option = 17)
-    {
-    draw_set_color(c_yellow); 
-    draw_text(222, 79, title_menu_string17);
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(222, 79, title_menu_string17); 
-    }
-    if(title_menu_option = 18)
-    {
-    draw_set_color(c_yellow); 
-    draw_text(222, 103, title_menu_string18); 
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(222, 103, title_menu_string18);
-    }
-    if(title_menu_option = 19)
-    {
-    draw_set_color(c_yellow);  
-    draw_text(222, 151, title_menu_string19);
-    draw_text(318, 151, "*"+scr_string_number_format(string_hex(sound_test_option),2)+"*")
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(222, 151, title_menu_string19);
-    draw_text(318, 151, "*"+scr_string_number_format(string_hex(sound_test_option),2)+"*")
-    }
-    if(title_menu_option = 20)
-    {
-    draw_set_color(c_yellow); 
-    draw_text(324, 191, title_menu_string20);
-    }
-    else
-    {
-    draw_set_color(c_white);
-    draw_text(324, 191, title_menu_string20); 
-    }
-    draw_sprite(spr_level_select, title_menu_option, 238, 169);
+    draw_level_select();
 }
 </string>
           </argument>

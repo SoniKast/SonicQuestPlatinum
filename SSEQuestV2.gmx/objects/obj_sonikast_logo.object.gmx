@@ -29,9 +29,36 @@
     initialized         = false;
     activate_text       = false;
     menu_x              = -107;
+    menu_x2             = -107;
     text_x              = 424;
+    text_x2             = 320;
+    skip                = false;
     alarm[0]            = 5;
-    alarm[1]            = 400;
+    alarm[1]            = 425;
+    alarm[2]            = 100;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>skip = true;
 </string>
           </argument>
         </arguments>
@@ -107,17 +134,39 @@
           <argument>
             <kind>1</kind>
             <string>/// Activate
-if(initialized = true)
+switch(global.screen_mode)
 {
-    menu_x = lerp(menu_x, 51, 0.12)
+    case 1:
+    if(initialized = true)
+    {
+        menu_x = lerp(menu_x, 51, 0.12)
+    }
+    
+    if(menu_x &gt; 50)
+    {
+        activate_text = true;
+        text_x = lerp(text_x, 165, 0.12);
+    }
+    break;
+    
+    case 2:
+    if(initialized = true)
+    {
+        menu_x2 = lerp(menu_x2, 110, 0.12);
+    }
+    if(menu_x2 &gt; 109)
+    {
+        activate_text = true;
+        text_x2 = lerp(text_x2, 58, 0.12);
+    }
+    break;
 }
 
-if(menu_x &gt; 50)
-{
-    activate_text = true;
-    text_x = lerp(text_x, 165, 0.12);
-}
-
+    if(keyboard_check_pressed(global.key_enter) &amp;&amp; skip = true)
+    {
+        audio_stop_sound(all);
+        instance_create(x, y, obj_fade_next);
+    }
 </string>
           </argument>
         </arguments>
@@ -140,10 +189,23 @@ if(menu_x &gt; 50)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(spr_sonikast, 0, menu_x, 69);
-if(activate_text = true)
+            <string>switch(global.screen_mode)
 {
-    draw_sprite(spr_sonikast_text, 0, text_x, 91);
+    case 1:
+    draw_sprite(spr_sonikast, 0, menu_x, 69);
+    if(activate_text = true)
+    {
+        draw_sprite(spr_sonikast_text, 0, text_x, 91);
+    }
+    break;
+    
+    case 2:
+    draw_sprite(spr_sonikast, 0, menu_x2, 37);
+    if(activate_text = true)
+    {
+        draw_sprite(spr_sonikast_text, 0, text_x2, 151);
+    }
+    break;
 }
 </string>
           </argument>

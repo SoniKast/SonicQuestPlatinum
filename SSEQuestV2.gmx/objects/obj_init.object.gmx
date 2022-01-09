@@ -51,7 +51,7 @@
     global.key_enter        = vk_enter;
  
  // Gamepad input:
-    global.gmp_exists       = joystick_exists(0);
+    global.gamepad_slot     = ds_list_create();
     global.gmp_action       = -1;
     global.gmp_special      = -1;
     global.gmp_enter        = -1;  
@@ -117,19 +117,15 @@
     global.special              = 0;    //This will be used for the controller object to count down when in a special stage     
     global.coming_from_special  = 0;
     global.ss_rings             = 0;
-    global.used_emerald_1       = false;
-    global.used_emerald_2       = false;
-    global.used_emerald_3       = false;
-    global.used_emerald_4       = false;
-    global.used_emerald_5       = false;
-    global.used_emerald_6       = false; 
-    global.used_emerald_7       = false;
+    global.used_emerald         = array_create(6);
     
  // Rendering:
-    global.screen_scale     = 1;         // The screen scale value.
-    global.screen_width     = 424;       // The screen width.
-    global.screen_height    = 240;       // The screen height.
-    global.angle_mode       = 0;         // How to rotate the player. (0 for classic, 1 for smooth)
+    global.screen_scale      = 1;         // The screen scale value.
+    global.screen_width      = 424;       // The screen width.
+    global.screen_height     = 240;       // The screen height.
+    global.screen_mode       = 1;         // 1 - 16:9 / 2 - 4:3
+    global.display_vsync     = 0;         // VSync
+    global.angle_mode        = 1;         // How to rotate the player. (0 for classic, 1 for smooth)
         
  // Sounds:
     global.bgm_id         = 0;     // Used to store the zone bgm. Unused.
@@ -175,6 +171,9 @@
             <kind>1</kind>
             <string>/// Center screen.
     window_center();
+    
+ // VSync:
+    display_reset(0, global.display_vsync);
 </string>
           </argument>
         </arguments>
@@ -229,7 +228,6 @@
     instance_create(0, 0, obj_audio);
     save_global_load();
     alarm[4] = 1;
-
 </string>
           </argument>
         </arguments>
@@ -263,6 +261,7 @@ if(alarm[2] = -1)
     alarm[2]  = 200;
 }
 
+
 </string>
           </argument>
         </arguments>
@@ -287,7 +286,8 @@ if(alarm[2] = -1)
             <kind>1</kind>
             <string>/// Draw Boot sequence.
 
-    draw_sprite_ext(sprite_index, 0, x, y, 1, 1, 0, c_white, 1);  
+    draw_rectangle_colour(0, 0, global.screen_width, global.screen_height, c_black, c_black, c_black, c_black, false);
+    draw_sprite(sprite_index, 0, 10, global.screen_height-39);  
 </string>
           </argument>
         </arguments>

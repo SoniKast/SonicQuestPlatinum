@@ -31,13 +31,13 @@
     {
         draw_set_halign(fa_center);
         draw_set_color(c_white);
-        draw_text(204, 5, "Main Menu");
+        draw_text(global.screen_width/2, 5, "Main Menu");
     }
     if(instance_exists(obj_character_select))
     {            
         draw_set_halign(fa_center);
         draw_set_color(c_white);
-        draw_text(204, 5, "Character Select");
+        draw_text(global.screen_width/2, 5, "Character Select");
     }
 </string>
           </argument>

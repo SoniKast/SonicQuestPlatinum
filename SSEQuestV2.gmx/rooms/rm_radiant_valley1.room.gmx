@@ -560,7 +560,7 @@
     <instance objName="obj_collision_tile_03" x="6336" y="1248" name="inst_F55859A1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_collision_tile_03" x="6336" y="1312" name="inst_251CF722" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_collision_tile_03" x="6336" y="1376" name="inst_006378D2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_monitor_ring" x="4816" y="1216" name="inst_AA1653D6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_monitor_ring" x="4816" y="1232" name="inst_AA1653D6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_collision_tile_29" x="6656" y="1152" name="inst_970C96D0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_collision_tile_29" x="6464" y="768" name="inst_3EDCB66B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_collision_tile_29" x="7424" y="1088" name="inst_B24B93AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -1528,9 +1528,9 @@
     <instance objName="obj_ring" x="3072" y="1280" name="inst_3853CB87" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ring" x="3136" y="1312" name="inst_5BDC8F6C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ring" x="3136" y="1408" name="inst_10FBCC3E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_monitor_life" x="3072" y="1232" name="inst_E3CFEC01" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_monitor_electricity" x="3120" y="1232" name="inst_033AF77A" locked="0" code="" scaleX="1.07142853736877" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_monitor_ring" x="3024" y="1232" name="inst_88ECC932" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_monitor_life" x="3072" y="1248" name="inst_E3CFEC01" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_monitor_electricity" x="3120" y="1248" name="inst_033AF77A" locked="0" code="" scaleX="1.07142853736877" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_monitor_ring" x="3024" y="1248" name="inst_88ECC932" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ring" x="3600" y="944" name="inst_4BC9E1A9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ring" x="3632" y="944" name="inst_74EB366B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ring" x="3664" y="944" name="inst_33246C9D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -1689,7 +1689,7 @@
     <instance objName="obj_ring" x="9472" y="1584" name="inst_3A29CDF5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_badnik_block" x="9296" y="1568" name="inst_AA74CF1C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_badnik_block" x="8864" y="1696" name="inst_A42E78E5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_monitor_eggman" x="7440" y="1840" name="inst_320AE46A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_monitor_eggman" x="7456" y="1856" name="inst_320AE46A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ssz_flower_violet" x="4352" y="640" name="inst_9E4C7639" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ssz_flower_violet" x="4496" y="640" name="inst_DA47FDA7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ssz_flower_violet" x="5072" y="656" name="inst_5998E751" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -1826,8 +1826,8 @@
     <instance objName="obj_badnik_block" x="3648" y="480" name="inst_B3241A6D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_badnik_block" x="3824" y="480" name="inst_68115F33" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_badnik_block" x="5488" y="1504" name="inst_EE9F876D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_monitor_shield" x="800" y="1456" name="inst_959F2827" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_monitor_shield" x="4528" y="1216" name="inst_D224C2C7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_monitor_shield" x="800" y="1472" name="inst_959F2827" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_monitor_shield" x="4528" y="1232" name="inst_D224C2C7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_example_bridge_16" x="8000" y="1088" name="inst_B9CA1F25" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_score_goal_100" x="13808" y="736" name="inst_45A07D2E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_score_goal_1000" x="13744" y="736" name="inst_E49C7000" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

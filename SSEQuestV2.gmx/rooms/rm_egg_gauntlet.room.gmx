@@ -16,8 +16,7 @@
     global.zone_act         =  8;
     global.water_position   = -1;
     global.death_height     = -1;
-    global.zone_id          =  6;
-    global.data_select_icon =  7;   
+    global.zone_id          =  7;
     global.special          =  0;
     global.cpu              =  0; // No AI for you</code>
   <enableViews>-1</enableViews>

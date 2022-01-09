@@ -22,23 +22,6 @@
       <filename>DBGHELP.dll</filename>
     </datafile>
     <datafile>
-      <name>joydll.dll</name>
-      <exists>-1</exists>
-      <size>55808</size>
-      <exportAction>2</exportAction>
-      <exportDir></exportDir>
-      <overwrite>0</overwrite>
-      <freeData>-1</freeData>
-      <removeEnd>0</removeEnd>
-      <store>0</store>
-      <ConfigOptions>
-        <Config name="Default">
-          <CopyToMask>9223372036854775807</CopyToMask>
-        </Config>
-      </ConfigOptions>
-      <filename>joydll.dll</filename>
-    </datafile>
-    <datafile>
       <name>SDL.dll</name>
       <exists>-1</exists>
       <size>1732450</size>
@@ -126,6 +109,7 @@
         <sound>sound\general_teleport</sound>
         <sound>sound\general_teleport_start</sound>
         <sound>sound\general_wallbreak</sound>
+        <sound>sound\general_water_rush</sound>
         <sound>sound\general_water_shoot</sound>
         <sound>sound\general_water_splash</sound>
         <sound>sound\general_menu_accept</sound>
@@ -189,6 +173,13 @@
       <sprite>sprites\spr_sega</sprite>
       <sprite>sprites\spr_engine_boot</sprite>
       <sprite>sprites\spr_loading</sprite>
+      <sprite>sprites\spr_ending</sprite>
+      <sprites name="Backgrounds">
+        <sprite>sprites\spr_menu_sonic</sprite>
+        <sprite>sprites\spr_menu_tails</sprite>
+        <sprite>sprites\spr_menu_knux</sprite>
+        <sprite>sprites\spr_menu_sonic_head</sprite>
+      </sprites>
     </sprites>
     <sprites name="Gameplay">
       <sprites name="Playables">
@@ -372,6 +363,9 @@
           <sprite>sprites\spr_monitor_icon</sprite>
           <sprite>sprites\spr_monitor_flip</sprite>
           <sprite>sprites\spr_monitor_palette</sprite>
+          <sprite>sprites\spr_monitor_flip_palette</sprite>
+          <sprite>sprites\spr_monitor_shard</sprite>
+          <sprite>sprites\spr_monitor_static</sprite>
         </sprites>
         <sprites name="Springs">
           <sprites name="Yellow">
@@ -549,8 +543,14 @@
           <sprite>sprites\spr_invincibility_counter</sprite>
         </sprites>
         <sprites name="Title Card">
-          <sprite>sprites\spr_title_card_banner</sprite>
-          <sprite>sprites\spr_title_card_stripe</sprite>
+          <sprites name="Mode 1">
+            <sprite>sprites\spr_title_card_banner</sprite>
+            <sprite>sprites\spr_title_card_stripe</sprite>
+          </sprites>
+          <sprites name="Mode 2">
+            <sprite>sprites\spr_title_card_banner_prime</sprite>
+            <sprite>sprites\spr_title_card_stripe_prime</sprite>
+          </sprites>
           <sprite>sprites\spr_title_card_act</sprite>
           <sprite>sprites\spr_act_clear_act</sprite>
         </sprites>
@@ -951,6 +951,7 @@
             <sprite>sprites\spr_ssz_launch</sprite>
             <sprite>sprites\spr_ssz_launch_mask</sprite>
             <sprite>sprites\spr_ssz_fan</sprite>
+            <sprite>sprites\spr_water_ride</sprite>
           </sprites>
           <sprite>sprites\spr_ssz_platform</sprite>
           <sprite>sprites\spr_ssz_platform_small</sprite>
@@ -1155,18 +1156,14 @@
         <sprite>sprites\spr_retro_title</sprite>
         <sprite>sprites\spr_platinum_edition</sprite>
         <sprite>sprites\spr_press_start</sprite>
-        <sprite>sprites\spr_level_select</sprite>
-        <sprite>sprites\spr_level_select_bg</sprite>
+        <sprites name="Level Select">
+          <sprite>sprites\spr_level_select</sprite>
+          <sprite>sprites\spr_level_select_bg</sprite>
+        </sprites>
       </sprites>
       <sprites name="Level Select">
         <sprite>sprites\spr_levelselect_stage_previews</sprite>
         <sprite>sprites\spr_levelselect_arrows</sprite>
-      </sprites>
-      <sprites name="Continue">
-        <sprites name="Text">
-          <sprite>sprites\spr_continue_text</sprite>
-        </sprites>
-        <sprite>sprites\spr_dataselect_continues</sprite>
       </sprites>
       <sprites name="Menu">
         <sprites name="New Data Select">
@@ -1177,19 +1174,31 @@
           <sprite>sprites\spr_data_select_zone</sprite>
           <sprite>sprites\spr_data_select_player</sprite>
         </sprites>
-        <sprites name="New Menu">
-          <sprite>sprites\spr_stripe_top</sprite>
-          <sprite>sprites\spr_stripe_bottom</sprite>
-          <sprite>sprites\spr_main_menu</sprite>
-          <sprite>sprites\spr_menu_frame</sprite>
-          <sprite>sprites\spr_menu_transition</sprite>
-        </sprites>
         <sprites name="Character Select">
-          <sprite>sprites\spr_css_sonic</sprite>
-          <sprite>sprites\spr_css_sonic_bg</sprite>
-          <sprite>sprites\spr_css_tails</sprite>
-          <sprite>sprites\spr_css_tails_bg</sprite>
-          <sprite>sprites\spr_menu_shoe</sprite>
+          <sprites name="1">
+            <sprite>sprites\spr_css_sonic</sprite>
+            <sprite>sprites\spr_css_sonic_bg</sprite>
+            <sprite>sprites\spr_css_tails</sprite>
+            <sprite>sprites\spr_css_tails_bg</sprite>
+          </sprites>
+          <sprites name="2">
+            <sprite>sprites\spr_css_sonic_prime</sprite>
+            <sprite>sprites\spr_css_tails_prime</sprite>
+          </sprites>
+        </sprites>
+        <sprites name="Menu">
+          <sprites name="1">
+            <sprite>sprites\spr_stripe_top</sprite>
+            <sprite>sprites\spr_stripe_bottom</sprite>
+            <sprite>sprites\spr_main_menu</sprite>
+            <sprite>sprites\spr_menu_frame</sprite>
+            <sprite>sprites\spr_menu_transition</sprite>
+          </sprites>
+          <sprites name="2">
+            <sprite>sprites\spr_menu_frame_prime</sprite>
+            <sprite>sprites\spr_main_menu_prime</sprite>
+            <sprite>sprites\spr_menu_transition_prime</sprite>
+          </sprites>
         </sprites>
       </sprites>
       <sprites name="Time Trial">
@@ -1200,12 +1209,14 @@
         <sprite>sprites\spr_sonikast</sprite>
         <sprite>sprites\spr_sonikast_text</sprite>
       </sprites>
+      <sprites name="Continue">
+        <sprites name="Text">
+          <sprite>sprites\spr_continue_text</sprite>
+        </sprites>
+        <sprite>sprites\spr_dataselect_continues</sprite>
+      </sprites>
     </sprites>
     <sprites name="Misc">
-      <sprite>sprites\spr_empty</sprite>
-      <sprite>sprites\spr_water_walk</sprite>
-      <sprite>sprites\spr_rain</sprite>
-      <sprite>sprites\spr_camera</sprite>
       <sprites name="Debug">
         <sprite>sprites\spr_playground</sprite>
         <sprite>sprites\spr_arrows</sprite>
@@ -1219,8 +1230,11 @@
         <sprite>sprites\spr_tube_path_icon</sprite>
         <sprite>sprites\spr_tube_path_icon_2</sprite>
       </sprites>
+      <sprite>sprites\spr_empty</sprite>
+      <sprite>sprites\spr_water_walk</sprite>
+      <sprite>sprites\spr_rain</sprite>
+      <sprite>sprites\spr_camera</sprite>
     </sprites>
-    <sprite>sprites\spr_unknown</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Titlescreen and Menus">
@@ -1230,9 +1244,6 @@
         <background>background\bg_sonikast</background>
       </backgrounds>
       <backgrounds name="Menu">
-        <background>background\bg_menu</background>
-        <background>background\bg_menu_2</background>
-        <background>background\bg_menu_3</background>
         <background>background\bg_stripe_top</background>
         <background>background\bg_stripe_bottom</background>
         <background>background\bg_back</background>
@@ -1353,7 +1364,6 @@
             <background>background\bg_ggz_clouds</background>
             <background>background\bg_ggz_building1</background>
             <background>background\bg_ggz_building2</background>
-            <background>background\bg_ggz_building</background>
             <background>background\bg_ggz_grass</background>
           </backgrounds>
           <backgrounds name="Act 2">
@@ -1594,46 +1604,53 @@
       <scripts name="Special Stage">
         <script>scripts\d3d_draw_2d.gml</script>
       </scripts>
+      <scripts name="Gamepad">
+        <script>scripts\input_detect_gamepad.gml</script>
+        <script>scripts\gamepad_id_pressed.gml</script>
+      </scripts>
+      <scripts name="Menus">
+        <script>scripts\string_hex.gml</script>
+        <script>scripts\sound_test_code.gml</script>
+        <script>scripts\draw_level_select.gml</script>
+      </scripts>
+      <scripts name="Effects">
+        <script>scripts\approach.gml</script>
+        <script>scripts\chance.gml</script>
+        <script>scripts\draw_number_zero.gml</script>
+        <script>scripts\draw_sprite_tiled_horizontal.gml</script>
+        <script>scripts\dummy_effect_create.gml</script>
+        <script>scripts\dummy_effect_create_motion.gml</script>
+        <script>scripts\dummy_effect_create_speed.gml</script>
+        <script>scripts\score_multiplier.gml</script>
+        <script>scripts\scr_afterimage.gml</script>
+        <script>scripts\scr_approach.gml</script>
+        <script>scripts\scr_string_number_format.gml</script>
+        <script>scripts\string_place_number.gml</script>
+        <script>scripts\tile_swap.gml</script>
+      </scripts>
+      <scripts name="Physics">
+        <script>scripts\physics_create.gml</script>
+        <script>scripts\physics_draw.gml</script>
+        <script>scripts\physics_interact.gml</script>
+        <script>scripts\physics_jump.gml</script>
+        <script>scripts\physics_move_left.gml</script>
+        <script>scripts\physics_move_right.gml</script>
+        <script>scripts\physics_collision_check.gml</script>
+        <script>scripts\physics_x_decel.gml</script>
+        <script>scripts\physics_y_decel.gml</script>
+        <script>scripts\physics_step.gml</script>
+      </scripts>
       <script>scripts\inview.gml</script>
-      <script>scripts\tile_swap.gml</script>
-      <script>scripts\string_hex.gml</script>
-      <script>scripts\sound_test_code.gml</script>
-      <script>scripts\string_place_number.gml</script>
-      <script>scripts\dummy_effect_create.gml</script>
       <script>scripts\wrap_angle.gml</script>
       <script>scripts\rotate_towards.gml</script>
-      <script>scripts\score_multiplier.gml</script>
       <script>scripts\badnik_simple_collision_check.gml</script>
       <script>scripts\instance_nth_nearest.gml</script>
       <script>scripts\safe_division.gml</script>
       <script>scripts\interpolate_values.gml</script>
-      <script>scripts\draw_sprite_tiled_horizontal.gml</script>
-      <script>scripts\draw_number_zero.gml</script>
-      <script>scripts\approach.gml</script>
-      <script>scripts\s8e_get_update.gml</script>
-      <script>scripts\gamepad_check.gml</script>
-      <script>scripts\scr_approach.gml</script>
-      <script>scripts\scr_string_number_format.gml</script>
       <script>scripts\room_goto_bonus.gml</script>
-      <script>scripts\chance.gml</script>
-      <script>scripts\dummy_effect_create_motion.gml</script>
-      <script>scripts\dummy_effect_create_speed.gml</script>
-      <script>scripts\physics_collision_check.gml</script>
-      <script>scripts\physics_create.gml</script>
-      <script>scripts\physics_draw.gml</script>
-      <script>scripts\physics_interact.gml</script>
-      <script>scripts\physics_jump.gml</script>
-      <script>scripts\physics_move_left.gml</script>
-      <script>scripts\physics_move_right.gml</script>
-      <script>scripts\physics_step.gml</script>
-      <script>scripts\physics_x_decel.gml</script>
-      <script>scripts\physics_y_decel.gml</script>
-      <script>scripts\scr_afterimage.gml</script>
       <script>scripts\scr_collision_check.gml</script>
       <script>scripts\scr_solid_check.gml</script>
       <script>scripts\wall_check.gml</script>
-      <script>scripts\easeOutBackBloominOnionZone.gml</script>
-      <script>scripts\easeOutExpoBloominOnionZone.gml</script>
       <script>scripts\scr_gravity.gml</script>
       <script>scripts\scr_solid.gml</script>
     </scripts>
@@ -1876,51 +1893,8 @@
           <script>scripts\TweenForcePropertyUpdate.gml</script>
           <script>scripts\SharedTweener.gml</script>
         </scripts>
-      </scripts>
-      <scripts name="JoyDLL">
-        <script>scripts\joy_axes.gml</script>
-        <script>scripts\joy_axis.gml</script>
-        <script>scripts\joy_ball_x.gml</script>
-        <script>scripts\joy_ball_y.gml</script>
-        <script>scripts\joy_balls.gml</script>
-        <script>scripts\joy_button.gml</script>
-        <script>scripts\joy_buttons.gml</script>
-        <script>scripts\joy_count.gml</script>
-        <script>scripts\joy_find.gml</script>
-        <script>scripts\joy_gmid.gml</script>
-        <script>scripts\joy_hat.gml</script>
-        <script>scripts\joy_hat_x.gml</script>
-        <script>scripts\joy_hat_y.gml</script>
-        <script>scripts\joy_hats.gml</script>
-        <script>scripts\joy_hi.gml</script>
-        <script>scripts\joy_init.gml</script>
-        <script>scripts\joy_list.gml</script>
-        <script>scripts\joy_name.gml</script>
-        <script>scripts\joy_pressed.gml</script>
-        <script>scripts\joy_r.gml</script>
-        <script>scripts\joy_released.gml</script>
-        <script>scripts\joy_u.gml</script>
-        <script>scripts\joy_update.gml</script>
-        <script>scripts\joy_v.gml</script>
-        <script>scripts\joy_x.gml</script>
-        <script>scripts\joy_y.gml</script>
-        <script>scripts\joy_z.gml</script>
-      </scripts>
-      <scripts name="JoyDLL-transparent">
-        <script>scripts\joystick_axes_a.gml</script>
-        <script>scripts\joystick_buttons_a.gml</script>
-        <script>scripts\joystick_check_button_a.gml</script>
-        <script>scripts\joystick_direction_a.gml</script>
-        <script>scripts\joystick_exists_a.gml</script>
-        <script>scripts\joystick_has_pov_a.gml</script>
-        <script>scripts\joystick_name_a.gml</script>
-        <script>scripts\joystick_pov_a.gml</script>
-        <script>scripts\joystick_rpos_a.gml</script>
-        <script>scripts\joystick_upos_a.gml</script>
-        <script>scripts\joystick_vpos_a.gml</script>
-        <script>scripts\joystick_xpos_a.gml</script>
-        <script>scripts\joystick_ypos_a.gml</script>
-        <script>scripts\joystick_zpos_a.gml</script>
+        <script>scripts\easeOutBackBloominOnionZone.gml</script>
+        <script>scripts\easeOutExpoBloominOnionZone.gml</script>
       </scripts>
     </scripts>
   </scripts>
@@ -1931,10 +1905,16 @@
     <objects name="Init">
       <object>objects\obj_init</object>
       <object>objects\obj_engine_screen</object>
+      <object>objects\obj_ending</object>
       <object>objects\obj_credits_screen</object>
       <objects name="Startup">
         <object>objects\obj_sega_startup</object>
         <object>objects\obj_sonikast_logo</object>
+      </objects>
+      <objects name="Global">
+        <object>objects\obj_audio</object>
+        <object>objects\obj_gamepad_controller</object>
+        <object>objects\obj_screen_controller</object>
       </objects>
       <objects name="Parents">
         <object>objects\par_obstacles</object>
@@ -1974,11 +1954,6 @@
         <object>objects\obj_level_controller</object>
         <object>objects\obj_instance_region</object>
         <object>objects\obj_indestructible</object>
-        <objects name="Global">
-          <object>objects\obj_audio</object>
-          <object>objects\obj_screen_controller</object>
-          <object>objects\obj_gamepad_controller</object>
-        </objects>
       </objects>
       <objects name="Playables">
         <object>objects\par_player</object>
@@ -2153,6 +2128,7 @@
         </objects>
         <objects name="Effects">
           <object>objects\obj_effect_screenflash</object>
+          <object>objects\obj_monitor_shard</object>
           <object>objects\obj_bonus_spark_generator</object>
           <object>objects\obj_bonus_spark</object>
           <object>objects\obj_after_image</object>
@@ -2774,33 +2750,6 @@
         <object>objects\obj_hpz_platform</object>
       </objects>
       <objects name="Extra">
-        <objects name="Bridge Zone">
-          <objects name="Parallax">
-            <object>objects\objBZParallax</object>
-          </objects>
-          <objects name="Waterfall">
-            <object>objects\obj_waterfall_bottom</object>
-            <object>objects\obj_waterfall_top</object>
-          </objects>
-          <objects name="Gimmicks">
-            <objects name="Seesaws">
-              <object>objects\objObjectSeesaw</object>
-              <object>objects\objObjectSpikeball</object>
-              <object>objects\objSeesawLimiterLeft</object>
-              <object>objects\objSeesawLimiterRight</object>
-            </objects>
-            <object>objects\obj_bridge_platform</object>
-            <object>objects\objBridgeZoneSpringPlatform</object>
-            <object>objects\objBridgeZoneSpringPlatformWeight</object>
-          </objects>
-          <objects name="Badniks">
-            <object>objects\obj_badnik_spikes</object>
-            <object>objects\obj_badnik_spikes_mask</object>
-            <object>objects\obj_badnik_buzzbomber</object>
-            <object>objects\obj_badnik_buzzbomber_bullet</object>
-          </objects>
-          <object>objects\obj_da_rock</object>
-        </objects>
         <object>objects\obj_bonus1_parallax</object>
         <object>objects\obj_goal_block</object>
       </objects>
@@ -2826,11 +2775,12 @@
       <room>rooms\rm_time_attack</room>
     </rooms>
     <rooms name="Stages">
-      <rooms name="Riverside Valley">
+      <rooms name="Radiant Riverside">
         <room>rooms\rm_radiant_valley1</room>
         <room>rooms\rm_radiant_valley2</room>
+        <room>rooms\rm_end_of_demo</room>
       </rooms>
-      <rooms name="Petal Park">
+      <rooms name="Petal Park Zone">
         <room>rooms\rm_great_garden1</room>
         <room>rooms\rm_great_garden2</room>
       </rooms>
@@ -2842,11 +2792,19 @@
         <room>rooms\rm_forest_frenzy1</room>
         <room>rooms\rm_forest_frenzy2</room>
       </rooms>
-      <rooms name="Aquapolis">
+      <rooms name="Wild Waterworks">
         <room>rooms\rm_aquapolis1</room>
         <room>rooms\rm_aquapolis2</room>
       </rooms>
+      <rooms name="Streamlined Sands">
+        <room>rooms\rm_streamlined_sands1</room>
+        <room>rooms\rm_streamlined_sands2</room>
+      </rooms>
       <rooms name="Egg Gauntlet">
+        <room>rooms\rm_egg_gauntlet1</room>
+        <room>rooms\rm_egg_gauntlet2</room>
+      </rooms>
+      <rooms name="Steampunk Egg">
         <room>rooms\rm_egg_gauntlet</room>
       </rooms>
       <rooms name="Cutscenes">
