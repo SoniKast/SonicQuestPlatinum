@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-5</depth>
+  <depth>-15</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -208,7 +208,6 @@
             <kind>1</kind>
             <string>/// Draw option pages.
 
-    draw_sprite(spr_menu_tails, 0, global.screen_width/2, global.screen_height/2);
     draw_set_font(global.main_font);
     draw_set_halign(fa_center);
     draw_set_color(c_yellow)

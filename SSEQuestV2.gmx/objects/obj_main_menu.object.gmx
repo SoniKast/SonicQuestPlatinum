@@ -233,7 +233,7 @@ switch(global.screen_mode)
     draw_sprite(spr_menu_frame_prime, main_menu_option, 148+position, 38);
     if(buffer = true)
     {
-        draw_sprite(spr_menu_transition_prime, -1, 150+position, 40);
+        draw_sprite(spr_menu_transition_prime, -1, 149+position, 39);
     }
     break;
 }

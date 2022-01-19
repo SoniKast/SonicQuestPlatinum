@@ -44,35 +44,56 @@
   </NewExtensions>
   <sounds name="sound">
     <sounds name="BGM">
-      <sound>sound\music_dataselect</sound>
-      <sound>sound\music_time_attack</sound>
-      <sound>sound\music_levelselect</sound>
-      <sound>sound\music_options</sound>
-      <sound>sound\music_test</sound>
-      <sound>sound\music_sunshine_valley1</sound>
-      <sound>sound\music_sunshine_valley2</sound>
-      <sound>sound\music_great_garden1</sound>
-      <sound>sound\music_great_garden2</sound>
-      <sound>sound\music_pinball_panic1</sound>
-      <sound>sound\music_pinball_panic2</sound>
-      <sound>sound\music_jungle_havoc1</sound>
-      <sound>sound\music_jungle_havoc2</sound>
-      <sound>sound\music_colossal_conduit1</sound>
-      <sound>sound\music_colossal_conduit2</sound>
-      <sound>sound\music_twisted_towers</sound>
-      <sound>sound\music_final_fall1</sound>
-      <sound>sound\music_final_fall2</sound>
-      <sound>sound\music_hidden_palace</sound>
-      <sound>sound\music_special_stage</sound>
-      <sound>sound\music_boss</sound>
-      <sound>sound\music_bonus_stage1</sound>
-      <sound>sound\music_bonus_stage2</sound>
-      <sound>sound\music_bonus_stage3</sound>
-      <sound>sound\music_final_boss</sound>
-      <sound>sound\music_final_boss2</sound>
-      <sound>sound\music_ending_cutscene</sound>
-      <sound>sound\music_credits</sound>
-      <sound>sound\music_menu</sound>
+      <sounds name="Menu">
+        <sound>sound\jingle_title</sound>
+        <sound>sound\music_menu</sound>
+        <sound>sound\music_time_attack</sound>
+        <sound>sound\music_dataselect</sound>
+        <sound>sound\music_levelselect</sound>
+        <sound>sound\music_options</sound>
+        <sound>sound\music_credits</sound>
+        <sound>sound\music_ending_cutscene</sound>
+      </sounds>
+      <sounds name="Zones">
+        <sounds name="RRZ">
+          <sound>sound\music_sunshine_valley1</sound>
+          <sound>sound\music_sunshine_valley2</sound>
+        </sounds>
+        <sounds name="PPZ">
+          <sound>sound\music_great_garden1</sound>
+          <sound>sound\music_great_garden2</sound>
+        </sounds>
+        <sounds name="CCZ">
+          <sound>sound\music_pinball_panic1</sound>
+          <sound>sound\music_pinball_panic2</sound>
+        </sounds>
+        <sounds name="FFZ">
+          <sound>sound\music_jungle_havoc1</sound>
+          <sound>sound\music_jungle_havoc2</sound>
+        </sounds>
+        <sounds name="WWZ">
+          <sound>sound\music_colossal_conduit1</sound>
+          <sound>sound\music_colossal_conduit2</sound>
+        </sounds>
+        <sounds name="TTZ">
+          <sound>sound\music_twisted_towers</sound>
+          <sound>sound\music_final_boss</sound>
+          <sound>sound\music_final_boss2</sound>
+        </sounds>
+        <sounds name="Final Fall">
+          <sound>sound\music_final_fall1</sound>
+          <sound>sound\music_final_fall2</sound>
+        </sounds>
+        <sounds name="Other">
+          <sound>sound\music_bonus_stage1</sound>
+          <sound>sound\music_bonus_stage2</sound>
+          <sound>sound\music_bonus_stage3</sound>
+          <sound>sound\music_hidden_palace</sound>
+          <sound>sound\music_special_stage</sound>
+          <sound>sound\music_test</sound>
+          <sound>sound\music_boss</sound>
+        </sounds>
+      </sounds>
     </sounds>
     <sounds name="SFX">
       <sounds name="General">
@@ -162,7 +183,6 @@
         <sound>sound\jingle_sneakers</sound>
         <sound>sound\jingle_scoring</sound>
         <sound>sound\jingle_super</sound>
-        <sound>sound\jingle_title</sound>
         <sound>sound\jingle_sega</sound>
         <sound>sound\jingle_kaz</sound>
       </sounds>
@@ -543,13 +563,21 @@
           <sprite>sprites\spr_invincibility_counter</sprite>
         </sprites>
         <sprites name="Title Card">
-          <sprites name="Mode 1">
-            <sprite>sprites\spr_title_card_banner</sprite>
-            <sprite>sprites\spr_title_card_stripe</sprite>
+          <sprites name="Old">
+            <sprites name="Mode 1">
+              <sprite>sprites\spr_title_card_banner</sprite>
+              <sprite>sprites\spr_title_card_stripe</sprite>
+            </sprites>
+            <sprites name="Mode 2">
+              <sprite>sprites\spr_title_card_banner_prime</sprite>
+              <sprite>sprites\spr_title_card_stripe_prime</sprite>
+            </sprites>
           </sprites>
-          <sprites name="Mode 2">
-            <sprite>sprites\spr_title_card_banner_prime</sprite>
-            <sprite>sprites\spr_title_card_stripe_prime</sprite>
+          <sprites name="New">
+            <sprites name="Mode 2">
+              <sprite>sprites\spr_ts_stripe_top</sprite>
+              <sprite>sprites\spr_ts_stripe_bottom</sprite>
+            </sprites>
           </sprites>
           <sprite>sprites\spr_title_card_act</sprite>
           <sprite>sprites\spr_act_clear_act</sprite>
@@ -2366,6 +2394,7 @@
         </objects>
         <objects name="Options">
           <object>objects\obj_options</object>
+          <object>objects\obj_options_bg</object>
         </objects>
         <objects name="Time Attack">
           <object>objects\obj_time_attack</object>

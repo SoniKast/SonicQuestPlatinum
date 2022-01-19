@@ -1,4 +1,4 @@
-/* approach(start, end, step) */
+/// approach(start, end, step)
 // Moves from start, to end at the rate of step.
 
     if (argument0 < argument1)

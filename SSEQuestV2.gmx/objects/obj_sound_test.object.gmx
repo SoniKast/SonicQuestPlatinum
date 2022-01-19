@@ -870,6 +870,68 @@ if(title_menu_active == 1)
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>surface_resize(application_surface, global.screen_width, global.screen_height);
+window_set_size(global.screen_width*global.screen_scale, global.screen_height*global.screen_scale);
+global.screen_width  = old_screen_width;
+global.screen_height = old_screen_height;
+view_wview[0] = global.screen_width;
+view_hview[0] = global.screen_height;
+view_wport[0] = global.screen_width;
+view_hport[0] = global.screen_height;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>surface_resize(application_surface, global.screen_width, global.screen_height);
+window_set_size(global.screen_width*global.screen_scale, global.screen_height*global.screen_scale);
+var old_screen_width  = global.screen_width;
+var old_screen_height = global.screen_height;
+global.screen_width  = 420;
+global.screen_height = 240;
+view_wview[0] = global.screen_width;
+view_hview[0] = global.screen_height;
+view_wport[0] = global.screen_width;
+view_hport[0] = global.screen_height;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
